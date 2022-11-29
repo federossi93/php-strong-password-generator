@@ -14,7 +14,7 @@ Verificato il corretto funzionamento del nostro codice, spostiamo la logica in u
 
 include __DIR__ .'/function.php';
 
-var_dump(__DIR__);
+//var_dump(__DIR__);
 
 
 
@@ -47,8 +47,8 @@ var_dump(__DIR__);
 
             <div>
                 <span>consenti ripetizioni di uno o piu' caratteri:</span>
-                <span>Si <input type="checkbox" name="ripetizioni" id="ripetizioni"></span>
-                <span>No <input type="checkbox" name="nonRipete" id="nonRipete"></span>
+                <span>Si <input type="radio" name="ripetizioni" id="ripetizioni"></span>
+                <span>No <input type="radio" name="nonRipete" id="nonRipete"></span>
             </div>
 
             <div>
