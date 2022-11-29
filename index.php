@@ -4,27 +4,18 @@
 Creare un form che invii in GET la lunghezza della password.
 Una nostra funzione utilizzerà questo dato per generare una password casuale (composta da lettere, lettere maiuscole, numeri e simboli)
 da restituire all’utente.
-Scriviamo tutto (logica e layout) in un unico file index.php*/
+Scriviamo tutto (logica e layout) in un unico file index.php
+
+Milestone 2
+Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale
+*/
 
 //var_dump($_GET['lunghezza']);
 
-function password (){
-$lettere = 'abcdefghijklmnopqrstuvwxyz';
-$lettereMaiuscole = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$numeri = '1234567890';
-$simboli = '!"£$%&/()=?\'^@#[]*';
-$caratteri = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!"£$%&/()=?\'^@#[]*';
+include __DIR__ .'/function.php';
 
-$randomPassord = '';
-for ($i=0; $i < $_GET['lunghezza'] ; $i++) { 
-    $randomPassord .= $caratteri[rand(0, strlen($caratteri) -1)];
-}
+var_dump(__DIR__);
 
-//var_dump($randomPassord);
-return $randomPassord;
-}
-
-password();
 
 
 ?>
@@ -50,6 +41,21 @@ password();
         <form action="index.php" method="get">
             Lunghezza password:
             <input type="number" name="lunghezza" id="lunghezza">
+
+            <button type="submit">Genera</button>
+            <button type="reset">Reset</button>
+
+            <div>
+                <span>consenti ripetizioni di uno o piu' caratteri:</span>
+                <span>Si <input type="checkbox" name="ripetizioni" id="ripetizioni"></span>
+                <span>No <input type="checkbox" name="nonRipete" id="nonRipete"></span>
+            </div>
+
+            <div>
+                <span>lettere <input type="checkbox" name="lettere" id="lettere"></span>
+                <span>Numeri <input type="checkbox" name="numeri" id="numeri"></span>
+                <span>Simboli <input type="checkbox" name="simboli" id="simboli"></span>
+            </div>
         </form>
 
         <p><?php echo password() ?></p>
